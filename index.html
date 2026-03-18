@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <!-- TODO: Open Graph 메타 태그를 설정하세요 -->
-    <!-- <meta property="og:title" content="페이지 제목" /> -->
-    <!-- <meta property="og:description" content="페이지 설명" /> -->
-    <!-- <meta property="og:image" content="./images/thumbnail.jpg" /> -->
+     <meta property="og:title" content="루드비코를 소개하는 웹사이트" />
+     <meta property="og:description" content="기본 정보와 일상 사진, 감명깊게 본 작품 등을 공유한다." />
+     <meta property="og:image" content="./images/my_profile.jpg" />
+     <meta property="og:type" content="website" />
 
-    <title>Today I Learn</title>
+    <title>나야, 루드비코.</title>
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/index.js" defer></script>
   </head>
@@ -29,12 +29,11 @@
     <section class="hero" id="about">
       <div class="profile-card">
         <div class="profile-image">
-          <!-- TODO: 프로필 이미지를 넣어주세요 -->
-          <!-- <img src="./images/profile.jpg" alt="프로필 사진" /> -->
+           <img src="./images/my_profile.png" alt="프로필 사진" />
         </div>
         <div class="profile-info">
-          <h1>닉네임</h1>
-          <p class="tagline">한 줄 소개를 작성해주세요.</p>
+          <h1>루드비코</h1>
+          <p class="tagline">8기 BE 루드비코입니다. 태초마을에 살고 있어요.</p>
         </div>
       </div>
     </section>
@@ -43,7 +42,7 @@
       <!-- 자기소개 -->
       <section class="content-section">
         <h2>자기소개</h2>
-        <p>자기소개를 작성해주세요.</p>
+        <p>검프로부터 영감을 받아 최근 <a href="https://hyoyoonnam.github.io/" target="_blank">블로그</a>를 운영하기 시작했습니다.</p>
         <!-- TODO: 소개 글 안에 블로그, GitHub 등 관련 링크를 <a> 태그로 연결하세요 -->
       </section>
 
@@ -54,19 +53,19 @@
         <table class="info-table">
           <tr>
             <th>이름</th>
-            <td></td>
+            <td>루드비코</td>
           </tr>
           <tr>
             <th>MBTI</th>
-            <td></td>
+            <td><a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-istj" target="_blank" rel="noopener">ISTJ</a></td>
           </tr>
           <tr>
             <th>취미</th>
-            <td></td>
+            <td>소설 읽기</td>
           </tr>
           <tr>
             <th>좋아하는 음식</th>
-            <td></td>
+            <td>알리오올리오</td>
           </tr>
         </table>
       </section>
@@ -76,12 +75,33 @@
         <h2>나만의 갤러리</h2>
         <p class="section-desc">갤러리 부제를 작성해주세요. (예: 기억에 남는 여행지)</p>
         <div class="gallery-grid">
-          <!-- TODO: 9장의 이미지를 배치하세요 -->
-          <!--
-          <img src="./images/gallery-1.jpg" alt="갤러리 이미지 1" />
-          <img src="./images/gallery-2.jpg" alt="갤러리 이미지 2" />
-          ...
-          -->
+          <div class="gallery-item">
+            <img src="./images/온보딩_연극.jpeg" alt="우테코 온보딩 때 연극을 준비하던 모습" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/인프런_답변왕_부상.jpeg" alt="인프런에서 2025 답변왕에 선정되고 부상으로 받은 와인과 치즈" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/전시_히무로_유리_오늘의_기쁨.jpg" alt="한남동 그라운드시소에서 관람한 히무로 유리의 '오늘의 기쁨' 전시 작품" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/잘_구운_닭가슴살_하나.jpeg" alt="마이야르가 제대로 일어나며 구워진 닭가슴살" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/킹크랩.jpg" alt="여름에 부산가서 먹은 킹크랩" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/알리오올리오.jpeg" alt="마늘과 새우, 크러쉬드 페퍼를 넣고 소금과 후추로만 간을 한 알리오올리오" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/여자친구_차_따라주기.jpg" alt="문래동 찻집에서 여자친구에게 차를 따라주던 때" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/밤친구_라꾸라꾸.jpg" alt="학교에서 밤을 샐 때 아는 선배가 빌려준 라꾸라꾸(간이 침대)" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/걱정없이_뛰던_때.jpg" alt="뛰고싶다는 생각이 들면 무작정 나가서 뛸 수 있는 여유가 있던 대학시절, 6키로를 뛴 기록" />
+          </div>
         </div>
       </section>
 
@@ -89,15 +109,28 @@
       <section class="content-section" id="works">
         <h2>나를 울린 인생 작품</h2>
         <div class="works-list">
-          <!-- TODO: 최소 2가지 작품을 소개하세요 -->
           <!-- TODO: 작품 중 하나는 <video> 또는 <iframe>으로 영상을 삽입하세요 -->
           <article class="work-card">
             <div class="work-thumbnail">
-              <!-- 작품 이미지 -->
+              <iframe width="140" height="180" src="https://www.youtube.com/embed/OC1e-XiBacE?si=scvbnJgeRWpV-yXK&amp;start=18" title="YouTube video player"
+                      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+              </iframe>
             </div>
             <div class="work-info">
-              <h3>작품 제목</h3>
-              <p>작품에 대한 설명을 작성해주세요.</p>
+              <h3>페르시아어 수업</h3>
+              <p>나치에게 끌려가던 트럭에서 내가 가진 빵 한 조각과 페르시아어로 된 책 하나를 교환했다.</p>
+              <p>난 페르시아어를 알지도 못하는데, 좋은 책이라나 뭐라나...</p>
+              <p>옆에 있던 유대인들이 하나씩 바닥에 고꾸라지던 중, 장교 하나가 페르시아어를 알려줄 선생을 구하고 있다며 나를 데려가는데...</p>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-thumbnail">
+              <img src="./images/Project_Hail_Mary_Book_Cover.jpg" alt="프로젝트 헤일메리 북커버" />
+            </div>
+            <div class="work-info">
+              <h3>프로젝트 헤일메리</h3>
+              <p>나, 너 지켜봄. 너, 나 지켜봄.</p>
             </div>
           </article>
         </div>

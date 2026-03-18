@@ -14,16 +14,18 @@
     <script src="./js/index.js" defer></script>
   </head>
   <body>
-    <!-- 상단 내비게이션 -->
-    <nav class="top-nav">
-      <span class="nav-logo">My Page</span>
-      <ul class="nav-links">
-        <li><a href="#about">자기소개</a></li>
-        <li><a href="#gallery">갤러리</a></li>
-        <li><a href="#works">인생 작품</a></li>
-        <li><a href="#til">TIL</a></li>
-      </ul>
-    </nav>
+    <header>
+      <!-- 상단 내비게이션 -->
+      <nav class="top-nav">
+        <span class="nav-logo">My Page</span>
+        <ul class="nav-links">
+          <li><a href="#about">자기소개</a></li>
+          <li><a href="#gallery">갤러리</a></li>
+          <li><a href="#works">인생 작품</a></li>
+          <li><a href="#til">TIL</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <!-- 프로필 히어로 -->
     <section class="hero" id="about">
@@ -49,7 +51,6 @@
       <!-- 기본 정보 -->
       <section class="content-section" id="info">
         <h2>기본 정보</h2>
-        <!-- TODO: 자신의 기본 정보를 표(<table>)로 정리하세요 -->
         <table class="info-table">
           <tr>
             <th>이름</th>
@@ -72,68 +73,101 @@
 
       <!-- 나만의 갤러리 -->
       <section class="content-section" id="gallery">
-        <h2>나만의 갤러리</h2>
-        <p class="section-desc">갤러리 부제를 작성해주세요. (예: 기억에 남는 여행지)</p>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="./images/온보딩_연극.jpeg" alt="우테코 온보딩 때 연극을 준비하던 모습" />
-          </div>
-          <div class="gallery-item">
-            <img src="./images/인프런_답변왕_부상.jpeg" alt="인프런에서 2025 답변왕에 선정되고 부상으로 받은 와인과 치즈" />
-          </div>
-          <div class="gallery-item">
-            <img src="./images/전시_히무로_유리_오늘의_기쁨.jpg" alt="한남동 그라운드시소에서 관람한 히무로 유리의 '오늘의 기쁨' 전시 작품" />
-          </div>
-          <div class="gallery-item">
-            <img src="./images/잘_구운_닭가슴살_하나.jpeg" alt="마이야르가 제대로 일어나며 구워진 닭가슴살" />
-          </div>
-          <div class="gallery-item">
-            <img src="./images/킹크랩.jpg" alt="여름에 부산가서 먹은 킹크랩" />
-          </div>
-          <div class="gallery-item">
-            <img src="./images/알리오올리오.jpeg" alt="마늘과 새우, 크러쉬드 페퍼를 넣고 소금과 후추로만 간을 한 알리오올리오" />
-          </div>
-          <div class="gallery-item">
-            <img src="./images/여자친구_차_따라주기.jpg" alt="문래동 찻집에서 여자친구에게 차를 따라주던 때" />
-          </div>
-          <div class="gallery-item">
-            <img src="./images/밤친구_라꾸라꾸.jpg" alt="학교에서 밤을 샐 때 아는 선배가 빌려준 라꾸라꾸(간이 침대)" />
-          </div>
-          <div class="gallery-item">
-            <img src="./images/걱정없이_뛰던_때.jpg" alt="뛰고싶다는 생각이 들면 무작정 나가서 뛸 수 있는 여유가 있던 대학시절, 6키로를 뛴 기록" />
-          </div>
-        </div>
+        <h2>일상 퍼즐</h2>
+        <p class="section-desc">얼마없는 퍼즐 조각들</p>
+        <ul class="gallery-grid">
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/온보딩_연극.jpeg" alt="우테코 온보딩 때 연극을 준비하던 모습" />
+              <div class="overlay">온보딩 연극 준비</div>
+            </div>
+          </li>
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/인프런_답변왕_부상.jpeg" alt="인프런에서 2025 답변왕에 선정되고 부상으로 받은 와인과 치즈" />
+              <div class="overlay">인프런 2025 답변왕 선물</div>
+            </div>
+          </li>
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/전시_히무로_유리_오늘의_기쁨.jpg" alt="한남동 그라운드시소에서 관람한 히무로 유리의 '오늘의 기쁨' 전시 작품" />
+              <div class="overlay">히무로 유리 - 오늘의 기쁨</div>
+            </div>
+          </li>
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/잘_구운_닭가슴살_하나.jpeg" alt="마이야르가 제대로 일어나며 구워진 닭가슴살" />
+              <div class="overlay">마이야르 닭가슴살</div>
+            </div>
+          </li>
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/킹크랩.jpg" alt="여름에 부산가서 먹은 킹크랩" />
+              <div class="overlay">킹크랩 맛있다</div>
+            </div>
+          </li>
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/알리오올리오.jpeg" alt="마늘과 새우, 크러쉬드 페퍼를 넣고 소금과 후추로만 간을 한 알리오올리오" />
+              <div class="overlay">마늘 듬뿍 알리오올리오</div>
+            </div>
+          </li>
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/여자친구_차_따라주기.jpg" alt="문래동 찻집에서 여자친구에게 차를 따라주던 때" />
+              <div class="overlay">여자친구 차 따라주는 중</div>
+            </div>
+          </li>
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/밤친구_라꾸라꾸.jpg" alt="학교에서 밤을 샐 때 아는 선배가 빌려준 라꾸라꾸(간이 침대)" />
+              <div class="overlay">밤을 함께한 라꾸라꾸</div>
+            </div>
+          </li>
+          <li class="gallery-item">
+            <div class="image-container">
+              <img src="./images/걱정없이_뛰던_때.jpg" alt="뛰고싶다는 생각이 들면 무작정 나가서 뛸 수 있는 여유가 있던 대학시절, 6키로를 뛴 기록" />
+              <div class="overlay">걱정없이 뛰던 그때</div>
+            </div>
+          </li>
+        </ul>
       </section>
 
       <!-- 나를 울린 인생 작품 -->
       <section class="content-section" id="works">
         <h2>나를 울린 인생 작품</h2>
-        <div class="works-list">
-          <!-- TODO: 작품 중 하나는 <video> 또는 <iframe>으로 영상을 삽입하세요 -->
-          <article class="work-card">
-            <div class="work-thumbnail">
-              <iframe width="140" height="180" src="https://www.youtube.com/embed/OC1e-XiBacE?si=scvbnJgeRWpV-yXK&amp;start=18" title="YouTube video player"
-                      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-              </iframe>
-            </div>
-            <div class="work-info">
-              <h3>페르시아어 수업</h3>
-              <p>나치에게 끌려가던 트럭에서 내가 가진 빵 한 조각과 페르시아어로 된 책 하나를 교환했다.</p>
-              <p>난 페르시아어를 알지도 못하는데, 좋은 책이라나 뭐라나...</p>
-              <p>옆에 있던 유대인들이 하나씩 바닥에 고꾸라지던 중, 장교 하나가 페르시아어를 알려줄 선생을 구하고 있다며 나를 데려가는데...</p>
-            </div>
-          </article>
-          <article class="work-card">
-            <div class="work-thumbnail">
-              <img src="./images/Project_Hail_Mary_Book_Cover.jpg" alt="프로젝트 헤일메리 북커버" />
-            </div>
-            <div class="work-info">
-              <h3>프로젝트 헤일메리</h3>
-              <p>나, 너 지켜봄. 너, 나 지켜봄.</p>
-            </div>
-          </article>
-        </div>
+        <ul class="works-list">
+
+          <li>
+            <article class="work-card">
+              <div class="work-thumbnail">
+                <iframe width="140" height="180" src="https://www.youtube.com/embed/OC1e-XiBacE?si=scvbnJgeRWpV-yXK&amp;start=18" title="YouTube video player"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+              </div>
+              <div class="work-info">
+                <h3>페르시아어 수업</h3>
+                <p>나치에게 끌려가던 트럭에서 내가 가진 빵 한 조각과 페르시아어로 된 책 하나를 교환했다.</p>
+                <p>난 페르시아어를 알지도 못하는데, 좋은 책이라나 뭐라나...</p>
+                <p>옆에 있던 유대인들이 하나씩 바닥에 고꾸라지던 중, 장교 하나가 페르시아어를 알려줄 선생을 구하고 있다며 나를 데려가는데...</p>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="work-card">
+              <div class="work-thumbnail">
+                <img src="https://i.namu.wiki/i/Z5LFy706523dOfooJhy2B_CtzKzZe6hGjoHwiyTfqi9-b_eBrRTDH6C8hnk8AGgDI8TTj2aBJ5E9OvMWHb3zCg.webp" alt="프로젝트 헤일메리 북커버" />
+              </div>
+              <div class="work-info">
+                <h3>프로젝트 헤일메리</h3>
+                <p>나, 너 지켜봄. 너, 나 지켜봄.</p>
+              </div>
+            </article>
+          </li>
+
+        </ul>
       </section>
 
       <!-- TIL (Today I Learned) -->

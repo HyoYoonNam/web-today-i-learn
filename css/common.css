@@ -14,3 +14,18 @@ h3 {
   font-family: "Jua", serif;
   font-weight: 400;
 }
+
+/* 태그 선택자 사용 */
+a {
+  color: var(--primary-color);
+  text-decoration: none; /* 밑줄 제거 */
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent; /* 부드러운 하단 선 효과 준비 */
+}
+
+a:hover {
+  color: #2d5a3c; /* 조금 더 진한 초록색 */
+  border-bottom: 1px solid var(--primary-color); /* 호버 시 밑줄 스르륵 */
+  opacity: 0.8;
+}

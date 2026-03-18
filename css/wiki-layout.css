@@ -104,17 +104,57 @@ main {
 }
 
 /* 갤러리 그리드 */
+/* 1. 갤러리 그리드  */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
+  list-style: none; /* ul 사용 시 점 제거 */
+  padding: 0;
 }
 
-.gallery-grid img {
+/* 2. 이미지와 오버레이를 감싸는 박스 */
+.image-container {
+  position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  overflow: hidden;
   border-radius: 4px;
+}
+
+/* 3. 이미지 스타일 (컨테이너에 맞춰 꽉 채우기) */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* 4. 오버레이 스타일 (이미지 위에 띄우기) */
+.overlay {
+  position: absolute; /* 부모(.image-container)를 기준으로 배치 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* 처음엔 안 보임 */
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* 오버레이가 마우스 이벤트를 방해하지 않게 설정 */
+}
+
+/* 5. 마우스를 올렸을 때 효과 */
+.image-container:hover .overlay {
+  opacity: 1; /* 글자 나타남 */
+}
+
+.image-container:hover img {
+  transform: scale(1.1); /* 이미지 살짝 확대 */
 }
 
 /* 인생 작품 카드 */
@@ -348,6 +388,15 @@ footer {
 .til-form button[type="reset"] {
   background-color: #eee;
   color: #666;
+}
+
+/* ID 선택자 사용 */
+#gallery h2 {
+  background: linear-gradient(to right, var(--primary-color), #88b04b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-size: 2rem;
 }
 
 /* 영상 삽입 */

@@ -1,0 +1,35 @@
+/* 떠다니는 목차 */
+.floating-toc {
+    position: fixed;
+    top: 120px;
+    right: 40px;
+    display: none;
+    z-index: 100;
+}
+
+@media (min-width: 1000px) {
+    .floating-toc {
+        display: block;
+    }
+}
+
+.floating-toc ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.floating-toc a {
+    color: #ccc;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.floating-toc a.active {
+    color: var(--primary-color);
+    font-weight: bold;
+    transform: translateX(-5px);
+    display: inline-block;
+}

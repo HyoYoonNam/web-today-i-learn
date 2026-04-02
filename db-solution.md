@@ -327,7 +327,60 @@ Empty result
 
 #### 문제 7: 누락된 출석 기록 추가 (INSERT)
 
+애초에 '어셔'라는 크루가 DB에 존재하지 않는 상태이다.
+
+**'어셔'를 crew에 추가**
+
+```sql
+INSERT INTO crew (nickname) VALUES ('어셔');
+
+SELECT * FROM crew;
+/*
++---------+-----------+
+| crew_id | nickname  |
++---------+-----------+
+|       1 | 검프      |
+|       2 | 구구      |
+|       3 | 네오      |
+|      11 | 디노      |
+|      10 | 류시      |
+|       8 | 리사      |
+|       4 | 브라운    |
+|       5 | 브리      |
+|      12 | 시지프    |
+|      13 | 어셔      |
+|       7 | 워니      |
+|       9 | 제임스    |
+|       6 | 포비      |
++---------+-----------+
+ */
+```
+
+**'어셔'의 출석 기록을 추가**
+
+```sql
+INSERT INTO attendance (crew_id, attendance_date, start_time, end_time)
+(
+  SELECT  crew_id, '2025-03-06', '09:31', '18:01'
+  FROM    crew
+  WHERE   nickname = '어셔'
+);
+
+SELECT  *
+FROM    attendance
+WHERE   crew_id =
+        (
+            SELECT crew_id FROM crew WHERE nickname = '어셔'
+        );
+/*
++---------------+---------+-----------------+------------+----------+
+| attendance_id | crew_id | attendance_date | start_time | end_time |
++---------------+---------+-----------------+------------+----------+
+|            76 |      13 | 2025-03-06      | 09:31:00   | 18:01:00 |
++---------------+---------+-----------------+------------+----------+
+ */
+```
+
 ## 알게 된 사실 정리
 
 - SELECT 절에서 AS로 선언한 것을 WHERE 등에서 사용 가능한가? -> 원칙적으로는 실행 순서로 인해 안 되고, 8.0 버전부터는 lateral 떄문에 된다.
-- 

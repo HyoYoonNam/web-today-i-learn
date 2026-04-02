@@ -381,6 +381,69 @@ WHERE   crew_id =
  */
 ```
 
+#### 문제 8: 잘못된 출석 기록 수정 (UPDATE)
+
+**데이터 세팅**
+
+```sql
+INSERT INTO crew (nickname) VALUES ('주니');
+
+INSERT INTO attendance (crew_id, attendance_date, start_time)
+(
+  SELECT  crew_id, '2025-03-12', '10:05'
+  FROM    crew
+  WHERE   nickname = '주니'
+);
+
+SELECT  *
+FROM    attendance
+WHERE   crew_id =
+(
+  SELECT  crew_id
+  FROM    crew
+  WHERE   nickname = '주니'
+)
+/*
++---------------+---------+-----------------+------------+----------+
+| attendance_id | crew_id | attendance_date | start_time | end_time |
++---------------+---------+-----------------+------------+----------+
+|            77 |      14 | 2025-03-12      | 10:05:00   | NULL     |
++---------------+---------+-----------------+------------+----------+
+ */
+```
+
+**데이터 수정**
+
+```sql
+UPDATE attendance
+SET start_time = '10:00'
+WHERE crew_id = (
+    SELECT crew_id
+    FROM crew
+    WHERE nickname = '주니'
+)
+  AND attendance_date = '2025-03-12';
+
+SELECT
+    a.attendance_id,
+    a.crew_id,
+    c.nickname,
+    a.attendance_date,
+    a.start_time
+FROM attendance AS a
+INNER JOIN crew AS c
+    ON a.crew_id = c.crew_id
+WHERE c.nickname = '주니';
+/*
++---------------+---------+----------+-----------------+------------+
+| attendance_id | crew_id | nickname | attendance_date | start_time |
++---------------+---------+----------+-----------------+------------+
+|            77 |      14 | 주니     | 2025-03-12      | 10:00:00   |
++---------------+---------+----------+-----------------+------------+
+ */
+```
+
 ## 알게 된 사실 정리
 
 - SELECT 절에서 AS로 선언한 것을 WHERE 등에서 사용 가능한가? -> 원칙적으로는 실행 순서로 인해 안 되고, 8.0 버전부터는 lateral 떄문에 된다.
+- [`INSERT INTO`에서 `SELECT` 활용하기](https://www.w3schools.com/sql/sql_insert_into_select.asp)

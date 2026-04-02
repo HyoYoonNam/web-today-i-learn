@@ -495,7 +495,20 @@ WHERE crew_id = (
  */
 ```
 
+#### 문제 10: 출석 정보 조회하기 (JOIN)
+
 ## 알게 된 사실 정리
 
 - SELECT 절에서 AS로 선언한 것을 WHERE 등에서 사용 가능한가? -> 원칙적으로는 실행 순서로 인해 안 되고, 8.0 버전부터는 lateral 떄문에 된다.
 - [`INSERT INTO`에서 `SELECT` 활용하기](https://www.w3schools.com/sql/sql_insert_into_select.asp)
+- 기본적으로 서브쿼리라는게 있고.
+  - 서브쿼리에서 메인쿼리의 컬럼을 참조하면 -> '**상관 서브쿼리**' (Correlated Subquery)
+    - 메인쿼리의 행마다 서브쿼리가 실행된다. 즉, 종속적이다.
+  - 참조 안하면 -> 그냥 '**서브쿼리**' 또는 '**Self-contained Subquery**'
+    - 메인쿼리와 독립적으로 실행되어 결과값을 먼저 구한다.
+  - 메인쿼리에서 서브쿼리 참조는 -> 불가능
+  - 서브쿼리를 괄호로 묶어서 AS 별칭 지정하면 -> 메인쿼리에서도 참조 가능. 
+  - `SELECT` 절에서 사용하면 -> '**Scala Subquery**'
+    - only 1 row, 1 column을 리턴하는 쿼리여야 함
+  - `FROM` 절에서 사용하면 -> '**인라인 뷰**' 또는 '**Derived Table**'
+  - `WHERE` 절에서 사용하면 -> '**Nested Subquery**'

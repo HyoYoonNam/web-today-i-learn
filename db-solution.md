@@ -443,6 +443,58 @@ WHERE c.nickname = '주니';
  */
 ```
 
+#### 문제 9: 허위 출석 기록 삭제 (DELETE)
+
+**데이터 세팅**
+
+```sql
+INSERT INTO crew (nickname)
+VALUES ('아론');
+
+INSERT INTO attendance (crew_id, attendance_date, start_time, end_time)
+SELECT crew_id, '2025-03-12', '10:00', '18:00'
+FROM crew
+WHERE nickname = '아론';
+
+SELECT *
+FROM attendance
+WHERE crew_id = (
+  SELECT crew_id
+  FROM crew
+  WHERE nickname = '아론'
+);
+/*
++---------------+---------+-----------------+------------+----------+
+| attendance_id | crew_id | attendance_date | start_time | end_time |
++---------------+---------+-----------------+------------+----------+
+|            78 |      15 | 2025-03-12      | 10:00:00   | 18:00:00 |
++---------------+---------+-----------------+------------+----------+
+ */
+```
+
+**데이터 삭제**
+
+```sql
+DELETE FROM attendance
+WHERE crew_id = (
+  SELECT crew_id
+  FROM crew
+  WHERE nickname = '아론'
+)
+AND attendance_date = '2025-03-12';
+
+SELECT *
+FROM attendance
+WHERE crew_id = (
+  SELECT crew_id
+  FROM crew
+  WHERE nickname = '아론'
+);
+/*
+결과 없음
+ */
+```
+
 ## 알게 된 사실 정리
 
 - SELECT 절에서 AS로 선언한 것을 WHERE 등에서 사용 가능한가? -> 원칙적으로는 실행 순서로 인해 안 되고, 8.0 버전부터는 lateral 떄문에 된다.

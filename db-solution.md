@@ -498,6 +498,28 @@ WHERE crew_id = (
 #### 문제 10: 출석 정보 조회하기 (JOIN)
 
 ```sql
+SELECT attendance_id, a.crew_id, nickname, attendance_date, start_time, end_time
+FROM attendance AS a
+INNER JOIN crew AS c ON a.crew_id = c.crew_id;
+/*
+ +---------------+---------+-----------+-----------------+------------+----------+
+| attendance_id | crew_id | nickname  | attendance_date | start_time | end_time |
++---------------+---------+-----------+-----------------+------------+----------+
+|             1 |       1 | 검프      | 2025-03-04      | 09:45:00   | 18:10:00 |
+|             2 |       1 | 검프      | 2025-03-05      | 09:50:00   | 18:05:00 |
+|             3 |       1 | 검프      | 2025-03-06      | 09:59:00   | 18:02:00 |
+|             4 |       1 | 검프      | 2025-03-07      | 10:00:00   | 18:05:00 |
+|             5 |       1 | 검프      | 2025-03-10      | 12:55:00   | 18:10:00 |
+|             6 |       1 | 검프      | 2025-03-11      | 09:58:00   | 18:03:00 |
+|             7 |       1 | 검프      | 2025-03-12      | 09:55:00   | 18:05:00 |
+|             8 |       2 | 구구      | 2025-03-04      | 10:01:00   | 18:01:00 |
+...
+ */
+```
+
+#### 문제 11: nickname으로 쿼리 처리하기 (서브 쿼리)
+
+```sql
 SELECT *
 FROM attendance
 WHERE crew_id = (
@@ -520,6 +542,25 @@ WHERE crew_id = (
  */
 ```
 
+#### 문제 12: 가장 늦게 하교한 크루 찾기
+
+```sql
+SELECT nickname, end_time
+FROM attendance AS a
+INNER JOIN crew AS c ON a.crew_id = c.crew_id
+WHERE attendance_date = '2025-03-06'
+ORDER BY end_time DESC
+LIMIT 1;
+
+/*
++-----------+----------+
+| nickname  | end_time |
++-----------+----------+
+| 제임스    | 18:10:00 |
++-----------+----------+
+ */
+```
+
 ## 알게 된 사실 정리
 
 - SELECT 절에서 AS로 선언한 것을 WHERE 등에서 사용 가능한가? -> 원칙적으로는 실행 순서로 인해 안 되고, 8.0 버전부터는 lateral 떄문에 된다.
@@ -535,3 +576,4 @@ WHERE crew_id = (
     - only 1 row, 1 column을 리턴하는 쿼리여야 함
   - `FROM` 절에서 사용하면 -> '**인라인 뷰**' 또는 '**Derived Table**'
   - `WHERE` 절에서 사용하면 -> '**Nested Subquery**'
+- `LIMIT`는 SQL 표준이 아니다. 표준은 `FETCH FIRST n ROWS ONLY`이다. 근데 MySQL은 표준을 지원조차 안 한다.

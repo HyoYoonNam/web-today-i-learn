@@ -545,7 +545,7 @@ WHERE crew_id = (
 #### 문제 12: 가장 늦게 하교한 크루 찾기
 
 ```sql
-SELECT nickname, end_time
+SELECT attendance_date AS `날짜`, nickname AS `가장 늦게 하교한 크루`, end_time
 FROM attendance AS a
 INNER JOIN crew AS c ON a.crew_id = c.crew_id
 WHERE attendance_date = '2025-03-06'
@@ -553,11 +553,11 @@ ORDER BY end_time DESC
 LIMIT 1;
 
 /*
-+-----------+----------+
-| nickname  | end_time |
-+-----------+----------+
-| 제임스    | 18:10:00 |
-+-----------+----------+
++------------+--------------------------------+----------+
+| 날짜       | 가장 늦게 하교한 크루          | end_time |
++------------+--------------------------------+----------+
+| 2025-03-06 | 제임스                         | 18:10:00 |
++------------+--------------------------------+----------+
  */
 ```
 
